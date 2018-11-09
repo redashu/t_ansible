@@ -1,5 +1,5 @@
 ---
- - hosts: all   #  this is target section of playbook 
+ - hosts: web   #  this is target section of playbook  and play 1
    tasks:
     - name: installing  httpd web  server
       yum: name=httpd  state=present 
@@ -12,3 +12,11 @@
   
     - name:  copy  web  page from URL to web server
       get_url:  url=http://192.168.10.254/pages/port.html dest=/var/www/html/a.html  
+
+
+ - hosts: db  # play  2
+   tasks:
+    - name: just pring  a sample message 
+      debug:  msg="Hello world"
+
+

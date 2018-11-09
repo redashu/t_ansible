@@ -8,3 +8,12 @@
 
 
    
+2.)   use  tags  for starting  services 
+
+     i)   configure  httpd and  vsftpd  service  
+     ii)   use tag   web  to start  httpd  
+     iii)  if  tag  web is  going to fail then automatically start tag ftp 
+     iv)    is there any way to skip  always  tag 
+
+
+

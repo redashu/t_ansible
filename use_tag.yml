@@ -1,0 +1,19 @@
+---
+ - hosts: web   #  this is target section of playbook 
+   tasks:
+    - name: running  any command    # task1
+      command:  date
+      tags:
+       - new
+  
+    - name:  starting  postfix  service #  task  2
+      service: name=postfix  state=restarted  enabled=yes
+      tags:
+       - mail 
+
+    - name: say good morning #  task 3
+      debug:  msg="Hello ALl good morning"
+      tags:
+       - always
+
+
