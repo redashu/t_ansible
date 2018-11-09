@@ -1,0 +1,9 @@
+---
+ - hosts: web   #  this is target section of playbook 
+   tasks:
+    - name: installing  httpd web  server
+      yum:
+       name: httpd
+       state: installed 
+
+

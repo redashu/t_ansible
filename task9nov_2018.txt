@@ -1,0 +1,10 @@
+1.  setup  vsftpd  server
+
+     i)  install and configure vsftpd  latest version  on centos /rhel 7
+     ii)  create ftp only user on the target machine name harry with password  pass
+     iii)  allow harry user to download and upload data via ftp from any network 
+     iv)  make sure Selinux is enabled and working with ftp on the target node
+     v)   create one more user  jack with password  pass  and no uploading allowed for jack
+
+
+   
