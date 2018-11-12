@@ -1,0 +1,21 @@
+---
+ - hosts: all   #  this is target section of playbook 
+   vars:
+    - x: cal
+   tasks:
+    - name: running  any command 
+      command:  date
+      register: myout
+
+    - name: running  "{{ x }}"
+      command: "{{ x }}"
+
+    - name:  showing  myout 
+      debug: var=myout 
+  
+    - name: only few part of myout 
+      debug:  msg="my data is  {{ myout.stdout }}"
+
+    - name: save to file 
+      copy: content="{{ myout.stdout }}" dest=/root/out.txt mode=0644 owner=root 
+

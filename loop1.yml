@@ -1,0 +1,26 @@
+---
+ - hosts: web   #  this is target section of playbook 
+   tasks:
+    - name: running  any command 
+      command: "{{ item }}"
+      with_items:
+       - date
+       - cal
+       - uptime
+       - whoami
+  
+    - name: install telnet  
+      yum: name="{{ item }}"  state=absent
+      with_items:
+       - ftp 
+       - screen
+       - finger
+       - mysql
+
+    - name: copy multi files
+      copy: src="{{ item }}"  dest=/tmp
+      with_items:
+       - /etc/passwd
+       - /etc/shadow
+       - /etc/group
+       - /etc/hosts

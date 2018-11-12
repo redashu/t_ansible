@@ -1,0 +1,13 @@
+---
+ - hosts: web   #  this is target section of playbook 
+   gather_facts: yes  #  the way not to run setup module 
+   tasks:
+    - name: running  any command 
+      command:  date
+  
+    - name:  checking my os name
+      debug:  msg="my os name is  {{ ansible_distribution }} and IP is {{ ansible_default_ipv4.address}}"
+
+
+
+

@@ -1,0 +1,23 @@
+---
+ - hosts: all   #  this is target section of playbook 
+   tasks:
+    - name: running  any command 
+      command:  date
+  
+    - name: checking os name 
+      debug: msg="Hello world with rpm structure "
+      when: ansible_distribution == "RedHat"
+
+    - name: install web server on rpm based machine
+      yum: name=httpd  state=present 
+      when: ansible_distribution == "RedHat"
+
+    - name: updating  ubuntu
+      shell: apt update 
+      when: ansible_distribution == "Ubuntu"
+
+    - name: install web server on debain based machine 
+      apt: name=apache2  state=present 
+      when: ansible_distribution == "Ubuntu"
+
+

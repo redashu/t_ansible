@@ -4,11 +4,12 @@
     - name: installing  httpd web  server
       yum: name=httpd  state=present 
 
+    - name: to change in httpd config file 
+      lineinfile: line="timeout 60"  dest=/etc/httpd/conf/httpd.conf 
+
     - name:  starting  httpd service
       service:  name=httpd  state=started  enabled=yes
 
     - name:  copy  ashutoshh.html to web  server
       copy: src=ashutoshh.html dest=/var/www/html/index.html mode=0644 
   
-    - name:  copy  web  page from URL to web server
-      get_url:  url=http://192.168.10.254/pages/port.html dest=/var/www/html/a.html  

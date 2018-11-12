@@ -1,0 +1,10 @@
+---
+ - hosts: web   #  this is target section of playbook 
+   gather_facts: no
+   tasks:
+    - name: running  any command 
+      command:  date
+  
+    - shell:  cal  |  wc -l 
+
+
