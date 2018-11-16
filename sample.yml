@@ -1,5 +1,5 @@
 ---
- - hosts: localhosts   #  this is target section of playbook 
+ - hosts: localhost  #  this is target section of playbook 
    tasks:
     - name: running  any command 
       command:  date
