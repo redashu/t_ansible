@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   gather_facts: no
+
+   tasks:
+    - yum: name="{{ item }}" state=present 
+      with_items:             
+       - telnet
+       - httpd
+       - ftp
+       - vsftpd
+
+    - name: copying  files 
+      copy: src="{{ item }}" dest=/root/
+      with_items:
+       - /etc/hosts
+       - /etc/passwd
+       - /etc/group

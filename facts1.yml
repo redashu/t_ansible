@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   gather_facts: yes
+
+   tasks:
+    - name: creating file on target 
+      copy: content="{{ ansible_hostname }}"       dest=/tmp/info.txt 
+
+    - name: getting default ip 
+      copy:  content="my ip is {{ ansible_default_ipv4.address }} and MAC is {{ ansible_default_ipv4.macaddress }}" dest=/tmp/ip.txt
+
+

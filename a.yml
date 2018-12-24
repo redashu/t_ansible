@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   vars:
+    - x: dream
+   tasks: 
+    - name: to add user 
+      user: name="{{ x }}" state=present
+    - name: to display hello world
+      debug: msg="hello world"

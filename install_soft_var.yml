@@ -1,0 +1,14 @@
+---
+ - hosts: adhoc,ok
+   vars_files:
+    - var.yml
+   tasks:
+    - yum: name="{{ item }}" state=present 
+      with_items: "{{ x }}"            
+
+    - name: copying  files 
+      copy: src="{{ item }}" dest=/root/
+      with_items:
+       - /etc/hosts
+       - /etc/passwd
+       - /etc/group
