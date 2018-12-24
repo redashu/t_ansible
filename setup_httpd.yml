@@ -1,0 +1,7 @@
+---
+ - hosts: all             # this is our target section 
+   tasks:    # collection of  modules 
+    - yum: name=httpd  state=present
+    - service: name=httpd state=started enabled=yes
+    - copy: src=/root/Desktop/abc.html dest=/var/www/html/index.html 
+    - shell:  iptables -F
