@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   vars_files:
+    - var.yml 
+   tasks:
+    - name: installing ftp 
+      yum: name="{{ a }}" state=present
+
+

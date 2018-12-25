@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   tasks:
+    - name: testing
+      command:  date
+      register: out   # to store any module generated output 
+
+    - name: printing  custom ouptut 
+      debug: msg="{{ out.stdout }}    {{ out.rc }}"   
+
+

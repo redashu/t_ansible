@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   vars:
+    - x: httpd
+    - y: "hello apache"
+   tasks:
+    - name: installing 
+      yum: name="{{ x }}" state=present
+
+    - name: starting 
+      service: name="{{ x }}" state=restarted enabled=yes
+
+    - name: creating index.html  
+      copy:  content="{{ y }}" dest=/var/www/html/index.html 
+
+

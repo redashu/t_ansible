@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   vars_files:
+    - var.yml 
+   tasks:
+    - name: uninstalling 
+      yum: name="{{ c }}" state=present
+
+

@@ -1,0 +1,13 @@
+---
+ - hosts: all
+   tasks:
+    - name: testing
+      command:  date
+      register: out   # to store any module generated output 
+
+    - name: printing  ouptut 
+      debug:  var=out   #  this is for using  register variable  
+
+    - name: creating  file on both the machine with their current date and time 
+      copy: content="my time is {{ out.stdout }} and start time is {{ out.start }}" dest=/root/Desktop/date.txt 
+
